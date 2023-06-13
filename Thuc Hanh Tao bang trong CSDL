@@ -1,0 +1,26 @@
+create database QuanLyDiemThi;
+USE QuanLyDiemThi;
+CREATE table HocSinh(
+MaHs VARCHAR(20) PRIMARY key,
+TenHs VARCHAR(50),
+NgaySinh DATETIME,
+Lop VARCHAR(20),
+GT VARCHAR(20)
+);
+CREATE TABLE MonHoc(
+MaMH VARCHAR(20) PRIMARY key,
+TenMH VARCHAR(50),
+MaHs varchar (20),FOREIGN KEY(MaHs) REFERENCES HocSinh(MaHs)
+);
+CREATE TABLE BangDiem(
+MaHS VARCHAR(20),
+MaMH varchar(20),
+DiemThi INT,
+NgayKT datetime,
+primary key(MaHS, MaMH),
+FOREIGN KEY(MaHS) REFERENCES HocSinh(MaHS),
+FOREIGN KEY(MaMH) REFERENCES MonHoc(MaMH)
+);
+
+
+
